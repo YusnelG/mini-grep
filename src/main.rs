@@ -39,11 +39,6 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    if args.len() < 3 {
-        eprintln!("Usage: minigrep <text> <filename>");
-        std::process::exit(1);
-    }
-
     let config = Config::new(&args).unwrap_or_else(|err| {
         eprintln!("Error parsing arguments: {}", err);
         std::process::exit(1);
